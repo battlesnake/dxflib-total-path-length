@@ -1,0 +1,49 @@
+Hi
+==
+
+I needed a command-line tool to calculate the total path length for DXF files
+non-interactively, so I hacked the functionality into the demo that comes with
+`dxflib`.  Run the demo with the `-l` option to calculate the total length.
+
+	./test/test -l <DXF file>
+
+
+Original README follows below this line
+=======================================
+
+dxflib - README
+
+
+dxflib - DXF library (C) 2000-2002 by Andrew Mustun, Robert J. Campbell Jr.
+
+Version 0.1.1
+
+
+License Information
+===================
+
+This program is covered with GNU Library General Public License (LGPL).
+
+
+What is dxflib ? 
+================
+
+2D DXF library
+Simple to use
+Written in C++
+Tested under Linux
+
+dxflib is an opensource C++ library for reading and writing (planned) 
+AutoDesk (R) DXF files. It's at the moment very simple but already 
+provides the functionality to read basic entities of a DXF file. 
+
+
+CONTACT
+=======
+
+You can contact the author by e-mail:
+	Andrew Mustun <andrew@mustun.com>
+
+or visit dxflib home page on:
+	http://dxflib.sourceforge.net/
+

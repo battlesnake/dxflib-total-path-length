@@ -1,0 +1,34 @@
+dxflib - changes
+
+0.1.2 (2002-04-03)
+------------------
+- Basic facilities for writing
+- POLYLINES
+
+0.1.1 (2001-11-12)
+------------------
+- Entities no longer stored in dxflib
+- interface for notifying classes about entities
+  found in a file
+
+0.0.6 (2000-11-08)
+------------------
+- Support for units
+
+0.0.4 (2000-09-26)
+------------------
+- Vector improvements
+
+0.0.3 (2000-09-25)
+------------------
+- First steps into our own fonts (not yet working)
+
+0.0.2 (2000-09-17)
+------------------
+- TEXT
+- Layers
+
+0.0.1 (2000-08-27)
+------------------
+- created CHANGES file
+- POINT, LINE, ARC, CIRCLE

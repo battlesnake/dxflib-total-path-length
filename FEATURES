@@ -1,0 +1,10 @@
+dxflib - Features
+
+
+Supported Entities (reading)
+
+	POINT
+	LINE
+	ARC
+	CIRCLE
+	POLYLINE

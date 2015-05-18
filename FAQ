@@ -1,0 +1,26 @@
+dxflib - FAQ
+
+
+Why another DXF library? Why not using DIME (www.sim.no/dime.html)?
+
+	DIME is open-source but not available for free for commercial use. That's OK.
+	However, DIME does NOT accept contributions to the project under GPL due to
+	the fact that they want be able to sell the product. For an open-source 
+	library this is IMHO unacceptable.
+
+
+How can I contribute to dxflib?
+
+	Please checkout the latest version via CVS and take a look at the code and
+	the documentation. Contact the main developer (see AUTHORS) by e-mail to 
+	contribute your changes or to get CVS write access.
+
+
+Are there any example programs available which use dxflib?
+
+	The only example program at the moment is vec2web. A format converter which
+	converts DXF files to PNG, WBMP and PS or shows them in a X11 or Windows 
+	window. 
+	vec2web is available from its homepage at http://vec2web.sourceforge.net
+	QCad II will also use dxflib. QCad II is under development however...
+

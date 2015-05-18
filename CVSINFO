@@ -1,0 +1,22 @@
+dxflib - CVSINFO
+
+
+This file tells you how to check out source anonymously through pserver
+
+Change into the directory where you want to create the dxflib directory tree
+
+Type the following:
+
+	cvs -d:pserver:anonymous@cvs.dxflib.sourceforge.net:/cvsroot/dxflib login
+
+If it asks you for a password, just type enter.
+
+After anonymously logging in:
+
+	cvs -d:pserver:anonymous@cvs.dxflib.sourceforge.net:/cvsroot/dxflib co dxflib
+
+After initial checkout, you can change into this directory and execute cvs commands 
+without the -d tag. For example:
+
+	cvs update
+

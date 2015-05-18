@@ -1,0 +1,129 @@
+# Generated automatically from Makefile.in by configure.
+#
+#
+# Makefile for dxflib
+#
+#
+
+#
+# dxflib installation directories
+#
+#LIBDIR = /usr/local/lib
+#INCDIR = /usr/local/include/dxflib
+VERSION = 0.1.2
+
+LIBDIR = $(HOME)/local/lib
+INCDIR = $(HOME)/local/include/dxflib
+
+#
+#------------------------ do not edit ------------------------
+#
+SHELL = /bin/sh
+
+CC           = gcc
+CFLAGS       = -I./src -march=native -mtune=native -O2 -g -pipe  -I/usr/local/include  -DUNIX=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 
+INSTALL      = /usr/bin/install -c
+INSTALL_DATA = ${INSTALL} -m 644
+FIND         = find
+MAKEDEPEND   = :
+AR           = ar
+ARFLAGS      = -rs
+
+BASE_DIR = ./src
+
+BASE_SRC = \
+		$(BASE_DIR)/dl_dxf.cpp \
+		$(BASE_DIR)/dl_writer_ascii.cpp
+
+BASE_INS = \
+		$(BASE_DIR)/dl_codes.h \
+		$(BASE_DIR)/dl_creationinterface.h \
+		$(BASE_DIR)/dl_dxf.h \
+		$(BASE_DIR)/dl_exception.h \
+		$(BASE_DIR)/dl_writer.h \
+		$(BASE_DIR)/dl_writer_ascii.h
+
+SRC = $(BASE_SRC)
+OBJ = $(SRC:.cpp=.o)
+
+INS =  $(BASE_INS)
+
+.cpp.o:  
+	$(CXX) $(CFLAGS) -c $< -o $@
+
+
+all: prepare ./lib/libdxf.a
+	#test -d ./include || mkdir ./include
+	#test -d ./include/dxflib || mkdir ./include/dxflib
+	#cp $(INS) ./include/dxflib/
+	#make install
+	#-(cd ./test ; make)
+
+prepare:
+	-( cwd=`pwd`; \
+	for hf in `find ./src -name '*.h'`; do \
+		file="$${hf##*/}"; cp -s "$$cwd/$$hf" "./include/$$file"; \
+	done )
+
+shared: ./lib/libdxf.so.$(VERSION)
+	@echo
+
+./lib/libdxf.a: $(OBJ) 
+	$(AR) $(ARFLAGS) ./lib/libdxf.a $(OBJ)
+
+./lib/libdxf.so.$(VERSION): $(OBJ)
+	$(CC) -shared -o ./lib/libdxf.so.$(VERSION) $(OBJ) -lc -lm
+	-(cd ./lib ; ln -s libdxf.so.$(VERSION) libdxf.so)
+
+install: ./lib/libdxf.a
+	test -d $(LIBDIR) || mkdir -p $(LIBDIR)
+	test -d $(INCDIR) || mkdir -p $(INCDIR)
+	$(INSTALL_DATA) ./lib/libdxf.a $(LIBDIR)
+	-(ln -s $(LIBDIR)/libdxf.a $(LIBDIR)/libdxf.a)
+	for IFILE in $(INS); do \
+		$(INSTALL_DATA) $$IFILE  $(INCDIR); \
+	done
+
+install-shared: ./lib/libdxf.so.$(VERSION)
+	test -d $(LIBDIR) || mkdir -p $(LIBDIR)
+	test -d $(INCDIR) || mkdir -p $(INCDIR)
+	$(INSTALL_DATA) ./lib/libdxf.so.$(VERSION) $(LIBDIR)
+	-(ln -s $(LIBDIR)/libdxf.so.$(VERSION) $(LIBDIR)/libdxf.so)
+	for IFILE in $(INS); do \
+		$(INSTALL_DATA) $$IFILE  $(INCDIR); \
+	done
+
+clean:
+	-(cd ./test ; make clean)
+	-rm -f $(OBJ)
+	-rm -f ./lib/lib* Makefile.bak
+	-rm -f ./include/dxflib/*.h
+	-$(FIND) . -name "*~" -exec rm -f {} \;
+	-rm -f ./lib/libdxf.$(VERSION).a
+  
+distclean: clean
+	-rm -f Makefile configure
+
+testing:	./lib/libdxf.a
+	(cd ./test ; make)
+
+docu:
+	-(doxygen ./doxygen.cfg)
+	#-(cd doc; tar fvcz classref.tar.gz classref; mv classref.tar.gz ../../homepage/htdocs/archives/ )
+
+dist:	clean docu
+	#-rm -r ./doc/classref/html/en/*
+	-rm -r ./distribution/dxflib/*
+	test -d ./distribution/dxflib || mkdir -p ./distribution/dxflib
+	-(cp -r ./src ./test ./doc ./distribution/dxflib/)
+	-(cp * ./distribution/dxflib/)
+	-(cd ./distribution/dxflib; rm config.log config.cache reinstall*; mkdir lib include)
+	-(cd ./distribution; tar fvcz dxflib-$(VERSION).tar.gz dxflib)
+
+depend:
+	$(MAKEDEPEND) -- $(CFLAGS) -- $(SRC)
+	@echo
+	@echo "Run 'make' to build dxflib library."
+	@echo
+
+# DO NOT DELETE THIS LINE -- make  depend  depends  on it.

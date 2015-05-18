@@ -1,0 +1,68 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:559: checking host system type
+configure:600: checking for gcc
+configure:713: checking whether the C compiler (gcc -march=native -mtune=native -O2 -g -pipe ) works
+configure:729: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c  1>&5
+configure:755: checking whether the C compiler (gcc -march=native -mtune=native -O2 -g -pipe ) is a cross-compiler
+configure:760: checking whether we are using GNU C
+configure:769: gcc -E conftest.c
+configure:788: checking whether gcc accepts -g
+configure:820: checking how to run the C preprocessor
+configure:841: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:911: checking for a BSD compatible install
+configure:966: checking for find
+configure:996: checking for makedepend
+configure:1033: checking for X
+configure:1100: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1176: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c -lXt  1>&5
+configure:1347: checking for dnet_ntoa in -ldnet
+configure:1366: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c -ldnet   1>&5
+/usr/bin/ld: cannot find -ldnet
+collect2: error: ld returned 1 exit status
+configure: failed program was:
+#line 1355 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char dnet_ntoa();
+
+int main() {
+dnet_ntoa()
+; return 0; }
+configure:1388: checking for dnet_ntoa in -ldnet_stub
+configure:1407: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c -ldnet_stub   1>&5
+/usr/bin/ld: cannot find -ldnet_stub
+collect2: error: ld returned 1 exit status
+configure: failed program was:
+#line 1396 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char dnet_ntoa();
+
+int main() {
+dnet_ntoa()
+; return 0; }
+configure:1436: checking for gethostbyname
+configure:1464: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c  1>&5
+configure:1534: checking for connect
+configure:1562: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c  1>&5
+configure:1626: checking for remove
+configure:1654: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c  1>&5
+configure:1718: checking for shmat
+configure:1746: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c  1>&5
+configure:1819: checking for IceConnectionNumber in -lICE
+configure:1838: gcc -o conftest -march=native -mtune=native -O2 -g -pipe   conftest.c -lICE   1>&5
+configure:1872: checking for ANSI C header files
+configure:1885: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1952: gcc -o conftest -march=native -mtune=native -O2 -g -pipe  -I/usr/local/include    -L/usr/local/lib conftest.c  1>&5
+configure: In function 'main':
+configure:1947:67: warning: incompatible implicit declaration of built-in function 'exit'
+ if (XOR (islower (i), ISLOWER (i)) || toupper (i) != TOUPPER (i)) exit(2);
+                                                                   ^
+configure:1979: checking for limits.h
+configure:1989: gcc -E  conftest.c >/dev/null 2>conftest.out
